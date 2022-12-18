@@ -1,5 +1,6 @@
 import streamlit
 import pandas
+import requests
 
 streamlit.title('My Parents New Healthy Diner')
 
@@ -25,3 +26,8 @@ streamlit.dataframe(fruits_to_show)
 
 # this is the showing the whole list of fruits
 # streamlit.dataframe(my_fruit_list)
+
+streamlit.header("Fruityvice Fruit Advice!")
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response.json())
